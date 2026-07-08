@@ -1,5 +1,6 @@
 package OpenStore.Store.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -38,7 +39,8 @@ public class Order {
     private BigDecimal totalPrice;
 
 //    @JoinColumn(name = "order_id" ,nullable = false)
-    @OneToMany(mappedBy = "order")
+    @JsonManagedReference
+    @OneToMany(mappedBy = "order" ,cascade = CascadeType.ALL)
     private List<OrderItem> orderItems;
 
     @Column(name = "created_at" )

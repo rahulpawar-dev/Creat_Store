@@ -1,5 +1,6 @@
 package OpenStore.Store.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import lombok.*;
@@ -25,6 +26,7 @@ public class OrderItem {
     private Integer Quantity;
 
 
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "order_id" ,nullable = false)
     private Order order;
