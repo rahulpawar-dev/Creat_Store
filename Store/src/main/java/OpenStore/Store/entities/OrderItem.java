@@ -1,5 +1,6 @@
 package OpenStore.Store.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
@@ -23,10 +24,10 @@ public class OrderItem {
     private Long Id;
 
     @Column(nullable = false)
-    private Integer Quantity;
+    private Integer quantity;
 
 
-    @JsonManagedReference
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "order_id" ,nullable = false)
     private Order order;
@@ -35,13 +36,14 @@ public class OrderItem {
     private BigDecimal priceAtPurchase;
 
 
+
+
     @ManyToOne
     @JoinColumn(name = "product_id" , nullable = false)
     private Product  product;
 
 
+    public void add(OrderItem orderItem) {
 
-
-
-
+    }
 }

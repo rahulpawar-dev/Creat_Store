@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class OrderRequest {
+public class OrderRequest{
 
 
     @NotBlank(message = "Customer Name Is Required ")
@@ -25,7 +25,7 @@ public class OrderRequest {
 
     @Valid
     @NotEmpty(message = "Order Must Contain At Least One Item ")
-    private List<OrderRequest> items;
+    private List<OrderItemRequest> items;
 
 
 }
